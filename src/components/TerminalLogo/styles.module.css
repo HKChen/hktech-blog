@@ -1,0 +1,36 @@
+.terminalLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', 'Courier Prime', monospace;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.prompt {
+  color: var(--terminal-cyan);
+  text-shadow: 0 0 10px currentColor;
+}
+
+.command {
+  color: var(--terminal-bright-green);
+  text-shadow: 0 0 10px currentColor;
+}
+
+.filename {
+  color: var(--terminal-amber);
+  text-shadow: 0 0 10px currentColor;
+}
+
+.cursor {
+  width: 12px;
+  height: 20px;
+  background: var(--terminal-bright-green);
+  animation: blink 1s infinite;
+  box-shadow: 0 0 10px currentColor;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

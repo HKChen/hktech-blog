@@ -1,0 +1,334 @@
+.categoriesPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.categoryCard {
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  padding: 2rem;
+  box-shadow: var(--blog-vibe-shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+}
+
+.categoryCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--blog-vibe-shadow-lg);
+}
+
+.categoryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.categoryName {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex: 1;
+}
+
+.categoryLink {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.categoryLink:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+}
+
+.categoryCount {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.categoryDescription {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.recentPosts {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 1.5rem;
+}
+
+.recentPostsTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 1rem;
+}
+
+.postsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.postItem {
+  margin-bottom: 0.75rem;
+}
+
+.postLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.postLink:hover {
+  background: var(--ifm-color-emphasis-100);
+  text-decoration: none;
+}
+
+.postTitle {
+  color: var(--ifm-color-emphasis-800);
+  font-weight: 500;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.postDate {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.viewAllLink {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.viewAllLink:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+  transform: translateX(2px);
+}
+
+.footer {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.backToBlogLink {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  transition: all 0.3s ease;
+}
+
+.backToBlogLink:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--blog-vibe-shadow);
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.emptyMessage h2 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
+
+.emptyMessage p {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1.1rem;
+}
+
+/* 響應式設計 */
+@media screen and (max-width: 768px) {
+  .categoriesPage {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .categoriesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .categoryCard {
+    padding: 1.5rem;
+  }
+  
+  .categoryHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .categoryName {
+    font-size: 1.3rem;
+  }
+  
+  .postLink {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .postDate {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .categoriesPage {
+    padding: 0.5rem;
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .categoryCard {
+    padding: 1rem;
+  }
+  
+  .backToBlogLink {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 深色模式優化 */
+[data-theme='dark'] .categoryCard {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .categoryCount {
+  background: var(--ifm-color-primary-darker);
+  color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .postLink:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+/* 動畫效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.categoryCard {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.categoryCard:nth-child(1) { animation-delay: 0.1s; }
+.categoryCard:nth-child(2) { animation-delay: 0.2s; }
+.categoryCard:nth-child(3) { animation-delay: 0.3s; }
+.categoryCard:nth-child(4) { animation-delay: 0.4s; }
+.categoryCard:nth-child(5) { animation-delay: 0.5s; }
+.categoryCard:nth-child(6) { animation-delay: 0.6s; }
+
+/* 無障礙設計 */
+.categoryLink:focus,
+.postLink:focus,
+.viewAllLink:focus,
+.backToBlogLink:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* 高對比度模式支援 */
+@media (prefers-contrast: high) {
+  .categoryCard {
+    border-width: 2px;
+  }
+  
+  .backToBlogLink {
+    border-width: 3px;
+  }
+}

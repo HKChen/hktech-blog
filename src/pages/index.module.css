@@ -1,0 +1,85 @@
+/**
+ * Terminal 16bit 風格主頁樣式
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--terminal-black);
+  border-bottom: 2px solid var(--terminal-green);
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.02) 2px,
+    rgba(0, 255, 0, 0.02) 4px
+  );
+  pointer-events: none;
+}
+
+.terminalTitle {
+  font-family: 'JetBrains Mono', monospace !important;
+  color: var(--terminal-bright-green) !important;
+  text-shadow: 0 0 20px currentColor !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
+.prompt {
+  color: var(--terminal-cyan);
+  margin-right: 0.5rem;
+}
+
+.terminalSubtitle {
+  font-family: 'JetBrains Mono', monospace !important;
+  color: var(--terminal-green) !important;
+  text-shadow: 0 0 10px currentColor !important;
+  margin-bottom: 2rem !important;
+}
+
+.comment {
+  color: var(--terminal-gray);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.buttonText {
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.buttonText::before {
+  content: '> ';
+  color: var(--terminal-cyan);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+  
+  .terminalTitle {
+    font-size: 2rem !important;
+  }
+  
+  .terminalSubtitle {
+    font-size: 1.2rem !important;
+  }
+}

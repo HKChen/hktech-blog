@@ -1,0 +1,1636 @@
+/**
+ * HKTech - Terminal 16bit 風格主題
+ */
+
+/* 導入復古字體 */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Courier+Prime:wght@400;700&display=swap');
+
+/* Terminal 16bit 主題變數 - 增強琥珀色風格 */
+:root {
+  /* 豐富的琥珀色調色板 */
+  --terminal-black: #0a0a0a;
+  --terminal-dark-bg: #1a1a0a;
+
+  /* 主要琥珀色系 */
+  --terminal-amber: #ffb000;
+  /* 主要琥珀色 */
+  --terminal-bright-amber: #ffc649;
+  /* 亮琥珀色 - 用於標題 */
+  --terminal-dark-amber: #cc8800;
+  /* 暗琥珀色 */
+  --terminal-light-amber: #ffcc66;
+  /* 淺琥珀色 - 用於次要文字 */
+
+  /* 輔助色系 */
+  --terminal-orange: #ff8c00;
+  /* 橘色 - 用於強調 */
+  --terminal-yellow: #ffff00;
+  /* 黃色 - 用於高亮 */
+  --terminal-gold: #ffd700;
+  /* 金色 - 用於特殊元素 */
+
+  /* 中性色系 */
+  --terminal-white: #ffffff;
+  /* 純白 - 用於最重要的文字 */
+  --terminal-cream: #fff8dc;
+  /* 奶油色 - 用於內容文字 */
+  --terminal-light-gray: #cccccc;
+  /* 淺灰 - 用於次要信息 */
+  --terminal-gray: #999999;
+  /* 中灰 - 用於輔助文字 */
+  --terminal-dark-gray: #666666;
+  /* 深灰 - 用於不重要文字 */
+
+  /* 主要顏色配置 */
+  --ifm-color-primary: var(--terminal-bright-amber);
+  --ifm-color-primary-dark: var(--terminal-dark-amber);
+  --ifm-color-primary-darker: #b37700;
+  --ifm-color-primary-darkest: #996600;
+  --ifm-color-primary-light: var(--terminal-amber);
+  --ifm-color-primary-lighter: #ffcc66;
+  --ifm-color-primary-lightest: #ffdd88;
+
+  /* 背景和文字顏色 */
+  --ifm-background-color: var(--terminal-black);
+  --ifm-background-surface-color: var(--terminal-dark-bg);
+  --ifm-color-content: var(--terminal-cream);
+  /* 主要內容文字 - 奶油色 */
+  --ifm-color-content-secondary: var(--terminal-light-amber);
+  /* 次要文字 - 淺琥珀色 */
+  --ifm-color-emphasis-100: #2a2a1a;
+  --ifm-color-emphasis-200: #3a3a2a;
+  --ifm-color-emphasis-300: #4a4a3a;
+  --ifm-color-emphasis-600: var(--terminal-light-gray);
+
+  /* 字體設定 */
+  --ifm-font-family-base: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
+  --ifm-code-font-size: 95%;
+
+  /* 程式碼高亮 */
+  --docusaurus-highlighted-code-line-bg: rgba(255, 176, 0, 0.1);
+
+  /* 邊框和陰影 */
+  --ifm-global-border-width: 1px;
+  --ifm-global-radius: 0px;
+  /* 移除圓角，保持方形 */
+  --ifm-global-shadow-lw: 0 0 10px rgba(255, 176, 0, 0.3);
+  --ifm-global-shadow-md: 0 0 20px rgba(255, 176, 0, 0.5);
+  --ifm-navbar-shadow: 0 2px 10px rgba(255, 176, 0, 0.2);
+
+  /* 連結顏色 */
+  --ifm-link-color: var(--terminal-gold);
+  /* 金色連結 */
+  --ifm-link-hover-color: var(--terminal-yellow);
+  /* 黃色懸停 */
+
+  /* 導航欄 */
+  --ifm-navbar-background-color: var(--terminal-black);
+  --ifm-navbar-link-color: var(--terminal-bright-amber);
+  /* 導航連結用亮琥珀色 */
+  --ifm-navbar-link-hover-color: var(--terminal-gold);
+  /* 懸停用金色 */
+
+  /* Footer */
+  --ifm-footer-background-color: var(--terminal-black);
+  --ifm-footer-color: var(--terminal-light-amber);
+  /* 頁腳文字用淺琥珀色 */
+  --ifm-footer-link-color: var(--terminal-gold);
+  /* 頁腳連結用金色 */
+  --ifm-footer-link-hover-color: var(--terminal-yellow);
+  /* 懸停用黃色 */
+}
+
+/* 深色模式（保持一致的琥珀色終端機風格） */
+[data-theme='dark'] {
+  --ifm-color-primary: var(--terminal-bright-amber);
+  --ifm-color-primary-dark: var(--terminal-dark-amber);
+  --ifm-color-primary-darker: #b37700;
+  --ifm-color-primary-darkest: #996600;
+  --ifm-color-primary-light: var(--terminal-amber);
+  --ifm-color-primary-lighter: #ffcc66;
+  --ifm-color-primary-lightest: #ffdd88;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 176, 0, 0.2);
+}
+
+/* Terminal 16bit 全域樣式 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--terminal-black);
+  color: var(--terminal-cream);
+  /* 主體文字用奶油色 */
+  font-family: var(--ifm-font-family-base);
+  text-shadow: 0 0 5px rgba(255, 248, 220, 0.3);
+  /* 奶油色陰影 */
+  line-height: 1.4;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 電視雜訊背景效果 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(255, 176, 0, 0.01) 100%),
+    repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 176, 0, 0.02) 2px,
+      rgba(255, 176, 0, 0.02) 4px);
+  pointer-events: none;
+  z-index: -1;
+  animation: tvNoise 0.2s infinite linear;
+}
+
+/* 電視雜訊動畫 */
+@keyframes tvNoise {
+  0% {
+    background-position: 0 0, 0 0;
+    opacity: 0.03;
+  }
+
+  10% {
+    background-position: -5px 0, 0 -2px;
+    opacity: 0.05;
+  }
+
+  20% {
+    background-position: -10px 0, 0 -4px;
+    opacity: 0.02;
+  }
+
+  30% {
+    background-position: -15px 0, 0 -6px;
+    opacity: 0.06;
+  }
+
+  40% {
+    background-position: -20px 0, 0 -8px;
+    opacity: 0.01;
+  }
+
+  50% {
+    background-position: -25px 0, 0 -10px;
+    opacity: 0.04;
+  }
+
+  60% {
+    background-position: -30px 0, 0 -12px;
+    opacity: 0.07;
+  }
+
+  70% {
+    background-position: -35px 0, 0 -14px;
+    opacity: 0.02;
+  }
+
+  80% {
+    background-position: -40px 0, 0 -16px;
+    opacity: 0.05;
+  }
+
+  90% {
+    background-position: -45px 0, 0 -18px;
+    opacity: 0.03;
+  }
+
+  100% {
+    background-position: -50px 0, 0 -20px;
+    opacity: 0.04;
+  }
+}
+
+/* 額外的雜訊層 */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent,
+      transparent 100px,
+      rgba(255, 176, 0, 0.005) 100px,
+      rgba(255, 176, 0, 0.005) 101px);
+  pointer-events: none;
+  z-index: -1;
+  animation: tvStatic 3s infinite linear;
+}
+
+@keyframes tvStatic {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100px);
+  }
+}
+
+/* 終端機風格的文字效果 */
+.terminal-text {
+  font-family: var(--ifm-font-family-monospace);
+  text-shadow: 0 0 10px currentColor;
+  letter-spacing: 0.5px;
+}
+
+/* 閃爍游標效果 */
+.terminal-cursor::after {
+  content: '█';
+  animation: blink 1s infinite;
+  color: var(--terminal-bright-green);
+}
+
+@keyframes blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 終端機風格的邊框 */
+.terminal-border {
+  border: 2px solid var(--terminal-green);
+  box-shadow:
+    0 0 10px rgba(0, 255, 0, 0.3),
+    inset 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+/* 掃描線效果 */
+.terminal-scanlines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.03) 2px,
+      rgba(0, 255, 0, 0.03) 4px);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* 基本響應式設計 */
+@media screen and (max-width: 996px) {
+  :root {
+    --ifm-spacing-horizontal: 1rem;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+/* Terminal 風格部落格文章卡片 */
+.blog-post-card {
+  background: var(--terminal-black);
+  border: 2px solid var(--terminal-amber);
+  border-radius: 0;
+  box-shadow:
+    0 0 20px rgba(255, 176, 0, 0.3),
+    inset 0 0 20px rgba(255, 176, 0, 0.05);
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.blog-post-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 176, 0, 0.02) 2px,
+      rgba(255, 176, 0, 0.02) 4px),
+    radial-gradient(ellipse at 30% 70%, rgba(255, 176, 0, 0.01) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 30%, rgba(255, 176, 0, 0.01) 0%, transparent 50%);
+  background-size: 100% 100%, 200px 200px, 150px 150px;
+  pointer-events: none;
+  animation: cardNoise 5s infinite linear;
+}
+
+@keyframes cardNoise {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+    opacity: 1;
+  }
+
+  25% {
+    background-position: 0 -2px, -50px -50px, 30px 30px;
+    opacity: 0.8;
+  }
+
+  50% {
+    background-position: 0 -4px, -100px -100px, 60px 60px;
+    opacity: 1.2;
+  }
+
+  75% {
+    background-position: 0 -6px, -150px -150px, 90px 90px;
+    opacity: 0.9;
+  }
+
+  100% {
+    background-position: 0 -8px, -200px -200px, 120px 120px;
+    opacity: 1;
+  }
+}
+
+.blog-post-card:hover {
+  box-shadow:
+    0 0 30px rgba(255, 176, 0, 0.5),
+    inset 0 0 30px rgba(255, 176, 0, 0.1);
+  border-color: var(--terminal-bright-amber);
+  text-shadow: 0 0 10px rgba(255, 198, 73, 0.8);
+}
+
+.blog-post-card h2 {
+  margin-bottom: 0.75rem;
+  color: var(--terminal-gold) !important;
+  /* 卡片標題用金色 */
+  font-family: var(--ifm-font-family-monospace);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8) !important;
+  font-weight: 700;
+}
+
+.blog-post-card h2::before {
+  content: '> ';
+  color: var(--terminal-yellow);
+  /* 前綴用黃色 */
+}
+
+.blog-post-card .blog-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--terminal-light-amber) !important;
+  /* 元數據用淺琥珀色 */
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.blog-post-card .blog-post-meta::before {
+  content: '[';
+  color: var(--terminal-orange);
+  /* 括號用橘色 */
+}
+
+.blog-post-card .blog-post-meta::after {
+  content: ']';
+  color: var(--terminal-orange);
+}
+
+.blog-post-card .blog-post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.blog-post-card .blog-post-tag {
+  background: transparent;
+  color: var(--terminal-orange);
+  /* 標籤用橘色 */
+  border: 1px solid var(--terminal-orange);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-family: var(--ifm-font-family-monospace);
+  text-transform: uppercase;
+}
+
+.blog-post-card .blog-post-tag::before {
+  content: '#';
+}
+
+.blog-post-card .blog-post-tag:hover {
+  background: var(--terminal-orange);
+  color: var(--terminal-black);
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+/* Terminal 風格標籤雲 */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid var(--terminal-amber);
+  background: rgba(255, 176, 0, 0.02);
+}
+
+.tag-cloud::before {
+  content: 'TAGS:/ ';
+  color: var(--terminal-gold);
+  /* 標籤雲標題用金色 */
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: block;
+  width: 100%;
+}
+
+.tag-cloud-item {
+  background: transparent;
+  color: var(--terminal-bright-amber);
+  /* 標籤項目用亮琥珀色 */
+  border: 1px solid var(--terminal-bright-amber);
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: var(--ifm-font-family-monospace);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tag-cloud-item::before {
+  content: '[';
+  color: var(--terminal-orange);
+  /* 括號用橘色 */
+}
+
+.tag-cloud-item::after {
+  content: ']';
+  color: var(--terminal-orange);
+}
+
+.tag-cloud-item:hover {
+  background: var(--terminal-bright-amber);
+  color: var(--terminal-black);
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(255, 198, 73, 0.6);
+  text-shadow: none;
+}
+
+.tag-cloud-item .tag-count {
+  margin-left: 0.5rem;
+  opacity: 0.7;
+  color: var(--terminal-yellow);
+  /* 標籤計數用黃色 */
+}
+
+.tag-cloud-item .tag-count::before {
+  content: '(';
+}
+
+.tag-cloud-item .tag-count::after {
+  content: ')';
+}
+
+/* 搜尋框樣式 - 使用 Docusaurus 內建搜尋 */
+
+/* 專門移除 navbar__search 相關的所有邊框 */
+.navbar__search,
+.navbar__search *,
+.navbar .navbar__search,
+.navbar .navbar__search *,
+.navbar__search-input,
+.navbar__search-input *,
+.navbar .navbar__search-input,
+.navbar .navbar__search-input *,
+.navbar__search:hover,
+.navbar__search:focus,
+.navbar__search:active,
+.navbar__search-input:hover,
+.navbar__search-input:focus,
+.navbar__search-input:active,
+.navbar__search::before,
+.navbar__search::after,
+.navbar__search-input::before,
+.navbar__search-input::after,
+[class*="navbar__search"],
+[class*="navbar__search"] *,
+div[class*="navbar__search"],
+div[class*="navbar__search"] *,
+input[class*="navbar__search"],
+input[class*="navbar__search"] * {
+  border: none !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  border-color: transparent !important;
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+
+
+/* Docusaurus 內建搜尋框基本樣式 */
+.navbar__search,
+.navbar__search-input,
+input[type="search"],
+.search-bar,
+.search-bar input {
+  background: var(--ifm-color-emphasis-100) !important;
+  border: none !important;
+  color: var(--ifm-color-content) !important;
+  font-family: var(--ifm-font-family-base) !important;
+  transition: all 0.2s ease !important;
+  padding: 0.375rem 0.75rem !important;
+  border-radius: var(--ifm-global-radius) !important;
+  font-size: 0.9rem !important;
+}
+
+.navbar__search-input::placeholder,
+input[type="search"]::placeholder,
+.search-bar input::placeholder {
+  color: var(--ifm-color-emphasis-600) !important;
+}
+
+.navbar__search-input:focus,
+input[type="search"]:focus,
+.search-bar input:focus {
+  border: none !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest) !important;
+  outline: none !important;
+}
+
+/* docusaurus-lunr-search 搜尋結果樣式 */
+.search-wrapper,
+.search-bar-container,
+.search-bar-expand,
+.search-results,
+.search-result-item {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-content);
+  font-family: var(--ifm-font-family-base);
+}
+
+.search-results {
+  box-shadow: var(--ifm-global-shadow-md);
+  border-radius: var(--ifm-global-radius);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.search-result-item:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.search-result-title {
+  color: var(--ifm-color-primary);
+  font-weight: var(--ifm-font-weight-semibold);
+  margin-bottom: 0.25rem;
+}
+
+.search-result-content {
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.search-result-url {
+  color: var(--ifm-color-primary);
+  font-size: 0.8rem;
+}
+
+/* 響應式設計 */
+@media screen and (max-width: 768px) {
+  .blog-post-card {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-post-card .blog-post-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+
+
+  .navbar__search-input,
+  input[type="search"],
+  .search-bar input {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blog-post-card {
+    padding: 0.75rem;
+  }
+
+  .tag-cloud {
+    gap: 0.5rem;
+  }
+
+  .tag-cloud-item {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* 擴展搜尋框樣式支援更多元素 */
+.aa-Form,
+.aa-InputWrapper,
+.aa-Input {
+  background: var(--ifm-color-emphasis-100) !important;
+  border: none !important;
+  color: var(--ifm-color-content) !important;
+  font-family: var(--ifm-font-family-base) !important;
+  transition: all 0.2s ease !important;
+  padding: 0.375rem 0.75rem !important;
+  border-radius: var(--ifm-global-radius) !important;
+  box-sizing: border-box !important;
+}
+
+.aa-Input::placeholder {
+  color: var(--ifm-color-emphasis-600) !important;
+}
+
+.aa-Input:focus {
+  border: none !important;
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest) !important;
+  outline: none !important;
+}
+
+/* Lunr 搜尋結果樣式 */
+.aa-Panel,
+.aa-PanelLayout,
+.aa-Source,
+.aa-SourceHeader,
+.aa-SourceHeaderTitle,
+.aa-SourceHeaderLine,
+.aa-SourceNoResults,
+.aa-List,
+.aa-Item,
+.aa-ItemWrapper,
+.aa-ItemContent,
+.aa-ItemContentBody,
+.aa-ItemContentTitle,
+.aa-ItemContentDescription {
+  background: var(--ifm-background-surface-color) !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  color: var(--ifm-color-content) !important;
+  font-family: var(--ifm-font-family-base) !important;
+}
+
+.aa-Item[aria-selected="true"],
+.aa-Item:hover {
+  background: var(--ifm-color-emphasis-100) !important;
+}
+
+.aa-ItemContentTitle {
+  color: var(--ifm-color-content) !important;
+  font-family: var(--ifm-font-family-base) !important;
+}
+
+.aa-ItemContentDescription {
+  color: var(--ifm-color-content-secondary) !important;
+}
+
+/* docusaurus-lunr-search 特定樣式 */
+.search-wrapper,
+.search-bar-container,
+.search-bar-expand,
+.search-bar,
+.search-input,
+.search-results,
+.search-result-item,
+.search-result-title,
+.search-result-content,
+.search-result-url {
+  background: var(--ifm-background-surface-color) !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  color: var(--ifm-color-content) !important;
+  font-family: var(--ifm-font-family-base) !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.search-input {
+  background: var(--ifm-color-emphasis-100) !important;
+  border: none !important;
+  color: var(--ifm-color-content) !important;
+  padding: 0.375rem 0.75rem !important;
+  border-radius: var(--ifm-global-radius) !important;
+}
+
+.search-input::placeholder {
+  color: var(--ifm-color-emphasis-600) !important;
+}
+
+.search-input:focus {
+  border: none !important;
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest) !important;
+  outline: none !important;
+}
+
+.search-results {
+  background: var(--ifm-background-surface-color) !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  box-shadow: var(--ifm-navbar-shadow) !important;
+  max-height: 400px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.search-result-item {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
+  padding: 1rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.search-result-item:hover {
+  background: var(--ifm-color-emphasis-100) !important;
+}
+
+.search-result-title {
+  color: var(--ifm-color-content) !important;
+  font-family: var(--ifm-font-family-base) !important;
+  font-weight: var(--ifm-font-weight-semibold) !important;
+}
+
+.search-result-content {
+  color: var(--ifm-color-content-secondary) !important;
+  margin-top: 0.5rem !important;
+}
+
+.search-result-url {
+  color: var(--ifm-color-primary) !important;
+  font-size: 0.8rem !important;
+  margin-top: 0.25rem !important;
+}
+
+/* 確保 Docusaurus 內建搜尋框在導航欄右上角正確顯示 */
+.navbar__search {
+  margin-left: 1rem;
+  order: 1;
+  border: none !important;
+}
+
+.navbar__search-input {
+  width: 220px;
+  min-width: 180px;
+  max-width: 300px;
+  border: none !important;
+}
+
+/* 搜尋框在導航欄右側的定位 */
+.navbar__items--right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar__items--right .navbar__search {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/* 響應式設計 */
+@media screen and (max-width: 996px) {
+  .navbar__search {
+    display: none;
+    /* 在手機版隱藏搜尋框 */
+  }
+}
+
+@media screen and (min-width: 997px) and (max-width: 1200px) {
+  .navbar__search-input {
+    width: 180px;
+    min-width: 150px;
+    border: none !important;
+  }
+
+  .navbar__search {
+    border: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__search-input {
+    width: 150px;
+    min-width: 120px;
+    border: none !important;
+  }
+
+  .navbar__search {
+    border: none !important;
+  }
+}
+
+/* T
+erminal 風格導航欄 */
+.navbar {
+  background: var(--terminal-black) !important;
+  border-bottom: 2px solid var(--terminal-green);
+  box-shadow: 0 2px 20px rgba(0, 255, 0, 0.3);
+  padding: 0.5rem 0;
+}
+
+.navbar__brand {
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 700;
+  color: var(--terminal-bright-green) !important;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.navbar__title::before {
+  content: '$ ';
+  color: var(--terminal-cyan);
+}
+
+.navbar__link {
+  color: var(--terminal-green) !important;
+  font-family: var(--ifm-font-family-monospace);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--terminal-bright-green) !important;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.navbar__link--active {
+  color: var(--terminal-amber) !important;
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Terminal 風格頁腳 */
+.footer {
+  background: var(--terminal-black) !important;
+  border-top: 2px solid var(--terminal-green);
+  color: var(--terminal-green) !important;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.footer__title {
+  color: var(--terminal-bright-green) !important;
+  font-family: var(--ifm-font-family-monospace);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer__title::before {
+  content: '> ';
+  color: var(--terminal-cyan);
+}
+
+.footer__link-item {
+  color: var(--terminal-green) !important;
+  font-family: var(--ifm-font-family-monospace);
+  transition: all 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--terminal-amber) !important;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.footer__copyright {
+  color: var(--terminal-gray) !important;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+/* Terminal 風格按鈕 */
+.button {
+  background: transparent !important;
+  border: 2px solid var(--terminal-green) !important;
+  color: var(--terminal-green) !important;
+  font-family: var(--ifm-font-family-monospace) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0 !important;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background: var(--terminal-green) !important;
+  color: var(--terminal-black) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  text-shadow: none;
+}
+
+.button--primary {
+  border-color: var(--terminal-bright-green) !important;
+  color: var(--terminal-bright-green) !important;
+}
+
+.button--primary:hover {
+  background: var(--terminal-bright-green) !important;
+  color: var(--terminal-black) !important;
+}
+
+/* Terminal 風格程式碼區塊 */
+.prism-code {
+  background: var(--terminal-black) !important;
+  border: 1px solid var(--terminal-green);
+  font-family: var(--ifm-font-family-monospace) !important;
+}
+
+.token.comment {
+  color: var(--terminal-gray) !important;
+}
+
+.token.string {
+  color: var(--terminal-amber) !important;
+}
+
+.token.keyword {
+  color: var(--terminal-cyan) !important;
+}
+
+.token.function {
+  color: var(--terminal-bright-green) !important;
+}
+
+.token.number {
+  color: var(--terminal-amber) !important;
+}
+
+/* Terminal 風格表格 */
+table {
+  border: 2px solid var(--terminal-green);
+  background: var(--terminal-black);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+th {
+  background: rgba(0, 255, 0, 0.1);
+  color: var(--terminal-bright-green);
+  border: 1px solid var(--terminal-green);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+td {
+  border: 1px solid var(--terminal-green);
+  color: var(--terminal-green);
+}
+
+/* Terminal 風格引用 */
+blockquote {
+  border-left: 4px solid var(--terminal-cyan);
+  background: rgba(0, 255, 255, 0.05);
+  color: var(--terminal-green);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+blockquote::before {
+  content: '> ';
+  color: var(--terminal-cyan);
+  font-weight: 700;
+}
+
+/* Terminal 風格標題 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--terminal-bright-green) !important;
+  font-family: var(--ifm-font-family-monospace) !important;
+  text-shadow: 0 0 10px currentColor;
+  font-weight: 700;
+}
+
+h1::before {
+  content: '# ';
+  color: var(--terminal-cyan);
+}
+
+h2::before {
+  content: '## ';
+  color: var(--terminal-cyan);
+}
+
+h3::before {
+  content: '### ';
+  color: var(--terminal-cyan);
+}
+
+h4::before {
+  content: '#### ';
+  color: var(--terminal-cyan);
+}
+
+h5::before {
+  content: '##### ';
+  color: var(--terminal-cyan);
+}
+
+h6::before {
+  content: '###### ';
+  color: var(--terminal-cyan);
+}
+
+/* Terminal 風格分頁 */
+.pagination {
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.pagination__item {
+  border: 1px solid var(--terminal-green);
+  background: transparent;
+}
+
+.pagination__item--active .pagination__link {
+  background: var(--terminal-green);
+  color: var(--terminal-black);
+}
+
+.pagination__link {
+  color: var(--terminal-green);
+  border-radius: 0;
+}
+
+.pagination__link:hover {
+  background: rgba(0, 255, 0, 0.1);
+  color: var(--terminal-bright-green);
+}
+
+/* 進階電視
+雜訊效果 */
+.tv-noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+  opacity: 0.02;
+}
+
+/* 隨機雜訊點 */
+.tv-noise-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 0, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 0, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, rgba(0, 255, 0, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 60% 60%, rgba(0, 255, 0, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 90% 90%, rgba(0, 255, 0, 0.3) 1px, transparent 1px);
+  background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px, 180px 180px;
+  animation: randomNoise 0.1s infinite linear;
+}
+
+@keyframes randomNoise {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+    opacity: 0.1;
+  }
+
+  25% {
+    background-position: -50px -50px, 30px -30px, 20px 40px, -40px 20px, 60px -60px;
+    opacity: 0.05;
+  }
+
+  50% {
+    background-position: -100px 0, 60px -60px, 40px 80px, -80px 40px, 120px -120px;
+    opacity: 0.15;
+  }
+
+  75% {
+    background-position: -150px 50px, 90px -90px, 60px 120px, -120px 60px, 180px -180px;
+    opacity: 0.03;
+  }
+
+  100% {
+    background-position: -200px 100px, 120px -120px, 80px 160px, -160px 80px, 240px -240px;
+    opacity: 0.08;
+  }
+}
+
+/* CRT 螢幕彎曲效果 */
+.crt-effect {
+  position: relative;
+}
+
+.crt-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 電視掃描線增強 */
+.enhanced-scanlines {
+  position: relative;
+}
+
+.enhanced-scanlines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 1px,
+      rgba(0, 255, 0, 0.03) 1px,
+      rgba(0, 255, 0, 0.03) 2px,
+      transparent 2px,
+      transparent 3px,
+      rgba(0, 255, 0, 0.01) 3px,
+      rgba(0, 255, 0, 0.01) 4px);
+  pointer-events: none;
+  z-index: 1;
+  animation: scanlineMove 2s infinite linear;
+}
+
+@keyframes scanlineMove {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(4px);
+  }
+}
+
+/* 偶爾的電視閃爍效果 */
+@keyframes tvFlicker {
+
+  0%,
+  98% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 0.98;
+  }
+
+  99.5% {
+    opacity: 1.02;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: tvFlicker 4s infinite;
+}
+
+/* 為主要容器添加 CRT 效果 */
+.main-wrapper,
+.navbar,
+.footer {
+  position: relative;
+}
+
+.main-wrapper::before,
+.navbar::before,
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.01) 2px,
+      rgba(0, 255, 0, 0.01) 4px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 響應式調整 - 在小螢幕上減少雜訊效果 */
+@media screen and (max-width: 768px) {
+  body::before {
+    animation-duration: 0.5s;
+    opacity: 0.5;
+  }
+
+  body::after {
+    animation-duration: 6s;
+    opacity: 0.5;
+  }
+
+  .tv-noise-overlay::before {
+    animation-duration: 0.3s;
+    opacity: 0.5;
+  }
+}
+
+/* 為了效能考量，在低效能裝置上減少動畫 */
+@media (prefers-reduced-motion: reduce) {
+
+  body::before,
+  body::after,
+  .tv-noise-overlay::before,
+  .enhanced-scanlines::after {
+    animation: none;
+  }
+
+  body {
+    animation: none;
+  }
+}
+
+/* 增強的標題和內容對比度 */
+
+/* 標題層次 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--terminal-bright-amber) !important;
+  /* 標題用亮琥珀色 */
+  font-family: var(--ifm-font-family-monospace) !important;
+  text-shadow: 0 0 15px rgba(255, 198, 73, 0.8) !important;
+  /* 強化標題陰影 */
+  font-weight: 700;
+}
+
+h1 {
+  color: var(--terminal-gold) !important;
+  /* H1 用金色，最突出 */
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.9) !important;
+}
+
+h2 {
+  color: var(--terminal-bright-amber) !important;
+  /* H2 用亮琥珀色 */
+}
+
+h3,
+h4,
+h5,
+h6 {
+  color: var(--terminal-amber) !important;
+  /* H3-H6 用標準琥珀色 */
+}
+
+/* 內容文字層次 */
+p,
+li,
+td {
+  color: var(--terminal-cream) !important;
+  /* 段落文字用奶油色 */
+}
+
+/* Span 元素特別處理 */
+span {
+  color: var(--terminal-light-amber) !important;
+  /* span 用淺琥珀色，更明顯 */
+}
+
+/* 標籤相關的 span */
+.tag-count,
+.tagCount,
+[class*="tag"] span,
+[class*="Tag"] span {
+  color: var(--terminal-yellow) !important;
+  /* 標籤計數用黃色 */
+  font-weight: 500;
+}
+
+/* 徽章樣式 */
+.badge,
+[class*="badge"] {
+  color: var(--terminal-gold) !important;
+  /* 徽章用金色 */
+  background: rgba(255, 215, 0, 0.1) !important;
+  border: 1px solid var(--terminal-gold) !important;
+  padding: 0.2rem 0.5rem !important;
+  border-radius: 0 !important;
+  font-family: var(--ifm-font-family-monospace) !important;
+}
+
+/* 次要文字 */
+.text-secondary,
+small,
+.small {
+  color: var(--terminal-light-amber) !important;
+  /* 次要文字用淺琥珀色 */
+}
+
+/* 強調文字 */
+strong,
+b {
+  color: var(--terminal-white) !important;
+  /* 粗體用純白色 */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* 程式碼文字 */
+code {
+  color: var(--terminal-yellow) !important;
+  /* 行內程式碼用黃色 */
+  background: rgba(255, 176, 0, 0.1) !important;
+  border: 1px solid rgba(255, 176, 0, 0.2) !important;
+}
+
+/* 引用文字 */
+blockquote {
+  border-left: 4px solid var(--terminal-gold) !important;
+  background: rgba(255, 215, 0, 0.05) !important;
+  color: var(--terminal-light-amber) !important;
+}
+
+/* 表格樣式 */
+th {
+  background: rgba(255, 198, 73, 0.15) !important;
+  color: var(--terminal-bright-amber) !important;
+  border: 1px solid var(--terminal-amber) !important;
+}
+
+td {
+  border: 1px solid var(--terminal-dark-amber) !important;
+  color: var(--terminal-cream) !important;
+}
+
+/* 按鈕樣式 */
+.button {
+  background: transparent !important;
+  border: 2px solid var(--terminal-amber) !important;
+  color: var(--terminal-bright-amber) !important;
+  font-family: var(--ifm-font-family-monospace) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0 !important;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background: var(--terminal-amber) !important;
+  color: var(--terminal-black) !important;
+  box-shadow: 0 0 20px rgba(255, 176, 0, 0.6);
+  text-shadow: none;
+}
+
+.button--primary {
+  border-color: var(--terminal-gold) !important;
+  color: var(--terminal-gold) !important;
+}
+
+.button--primary:hover {
+  background: var(--terminal-gold) !important;
+  color: var(--terminal-black) !important;
+}
+
+/* 導航欄品牌 */
+.navbar__brand {
+  color: var(--terminal-gold) !important;
+  /* 品牌名稱用金色 */
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8) !important;
+}
+
+.navbar__title {
+  color: var(--terminal-gold) !important;
+}
+
+/* 導航連結 */
+.navbar__link {
+  color: var(--terminal-bright-amber) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--terminal-gold) !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.navbar__link--active {
+  color: var(--terminal-yellow) !important;
+  text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+}
+
+/* 頁腳標題 */
+.footer__title {
+  color: var(--terminal-bright-amber) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer__link-item {
+  color: var(--terminal-light-amber) !important;
+  transition: all 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--terminal-gold) !important;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.footer__copyright {
+  color: var(--terminal-gray) !important;
+}
+
+/* 修復可能的黑色文字問題 */
+.text-dark,
+.text-black,
+[style*="color: black"],
+[style*="color: #000"] {
+  color: var(--terminal-cream) !important;
+}
+
+/* 確保所有文字都有適當的對比度 */
+* {
+  color: inherit;
+}
+
+*:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.navbar__brand):not(.navbar__title):not(.navbar__link):not(.footer__title):not(strong):not(b):not(code) {
+  color: var(--terminal-cream);
+}
+
+/* 標籤
+頁面特殊樣式修復 */
+.tag-item span,
+.tag-link span,
+.tags-page span,
+[data-tag] span {
+  color: var(--terminal-bright-amber) !important;
+  /* 標籤頁面的 span 用亮琥珀色 */
+  text-shadow: 0 0 5px rgba(255, 198, 73, 0.5);
+}
+
+/* 標籤計數特別強調 */
+.tag-item .tag-count,
+.tag-link .tag-count,
+[class*="count"] {
+  color: var(--terminal-yellow) !important;
+  /* 計數用黃色 */
+  background: rgba(255, 255, 0, 0.1) !important;
+  padding: 0.1rem 0.3rem !important;
+  border-radius: 0 !important;
+  font-family: var(--ifm-font-family-monospace) !important;
+  font-weight: 700 !important;
+}
+
+/* 修復可能的透明或不可見文字 */
+span[style*="color: transparent"],
+span[style*="opacity: 0"],
+.invisible,
+.hidden-text {
+  color: var(--terminal-light-amber) !important;
+  opacity: 1 !important;
+}
+
+/* 確保所有標籤相關元素都可見 */
+.tag-wrapper,
+.tags-wrapper,
+.tag-container {
+  color: var(--terminal-cream) !important;
+}
+
+.tag-wrapper span,
+.tags-wrapper span,
+.tag-container span {
+  color: var(--terminal-bright-amber) !important;
+}
+
+/* 部落格標籤特殊處理 */
+.blog-tags span,
+.post-tags span,
+article span {
+  color: var(--terminal-light-amber) !important;
+  min-opacity: 0.8 !important;
+}
+
+/* 確保沒有繼承問題 */
+* span {
+  color: inherit;
+}
+
+/* 強制覆蓋任何可能的隱藏樣式 */
+span:not([style*="display: none"]):not(.sr-only):not(.visually-hidden) {
+  color: var(--terminal-light-amber) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}/* 
+隱藏語言選擇器 */
+.navbar__item--type-localeDropdown,
+[class*="localeDropdown"],
+.navbar__link--locale,
+[data-locale-dropdown],
+.dropdown--locale {
+  display: none !important;
+}
+
+/* 隱藏任何語言相關的下拉選單 */
+.navbar__item .dropdown__menu[class*="locale"],
+.navbar__item .dropdown__menu[class*="language"] {
+  display: none !important;
+}
+
+/* 確保導航欄項目正確對齊（移除語言選擇器後） */
+.navbar__items--right {
+  gap: 1rem;
+}/* 移除
+ hero--primary 的背景色 */
+.hero--primary {
+  --ifm-hero-background-color: transparent !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* 確保所有 hero 區域都是透明背景 */
+.hero,
+.hero--primary,
+.hero--secondary {
+  --ifm-hero-background-color: transparent !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* 移除任何可能的漸變背景 */
+.hero::before,
+.hero--primary::before {
+  background: transparent !important;
+}
+
+/* 確保 hero 容器也是透明的 */
+.hero .container,
+.hero--primary .container {
+  background: transparent !important;
+}/* 移
+除標籤計數的背景色 */
+.tagWithCount_h2kH span,
+[class*="tagWithCount"] span,
+[class*="tag-with-count"] span {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 確保所有標籤相關的 span 都沒有背景 */
+.tag span,
+.tag-item span,
+.tag-link span,
+[class*="tag"] span {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 移除可能的偽元素背景 */
+.tagWithCount_h2kH span::before,
+.tagWithCount_h2kH span::after,
+[class*="tagWithCount"] span::before,
+[class*="tagWithCount"] span::after {
+  background: transparent !important;
+  background-color: transparent !important;
+}

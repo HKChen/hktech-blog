@@ -1,0 +1,113 @@
+.terminalBanner {
+  position: relative;
+  background: var(--terminal-black);
+  border: 2px solid var(--terminal-green);
+  padding: 2rem;
+  margin: 2rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  overflow: hidden;
+  box-shadow: 
+    0 0 30px rgba(0, 255, 0, 0.3),
+    inset 0 0 30px rgba(0, 255, 0, 0.05);
+}
+
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.03) 2px,
+      rgba(0, 255, 0, 0.03) 4px
+    ),
+    radial-gradient(circle at 25% 25%, rgba(0, 255, 0, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(0, 255, 0, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 50px 50px, 80px 80px;
+  pointer-events: none;
+  animation: bannerNoise 3s infinite linear;
+}
+
+@keyframes bannerNoise {
+  0% { 
+    background-position: 0 0, 0 0, 0 0;
+    opacity: 1;
+  }
+  33% { 
+    background-position: 0 -2px, -25px -25px, 40px 40px;
+    opacity: 0.7;
+  }
+  66% { 
+    background-position: 0 -4px, -50px -50px, 80px 80px;
+    opacity: 1.3;
+  }
+  100% { 
+    background-position: 0 -6px, -75px -75px, 120px 120px;
+    opacity: 1;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  margin-bottom: 1rem;
+}
+
+.prompt {
+  color: var(--terminal-cyan);
+  text-shadow: 0 0 10px currentColor;
+  font-weight: 700;
+}
+
+.welcomeText {
+  font-size: 1.5rem;
+  color: var(--terminal-bright-green);
+  text-shadow: 0 0 15px currentColor;
+  margin-bottom: 1.5rem;
+  min-height: 2rem;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: var(--terminal-bright-green);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.systemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--terminal-gray);
+  font-size: 0.9rem;
+}
+
+.systemInfo div::before {
+  content: '> ';
+  color: var(--terminal-cyan);
+}
+
+@media screen and (max-width: 768px) {
+  .terminalBanner {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .welcomeText {
+    font-size: 1.2rem;
+  }
+  
+  .systemInfo {
+    font-size: 0.8rem;
+  }
+}

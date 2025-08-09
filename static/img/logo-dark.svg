@@ -1,0 +1,41 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Terminal Window Background -->
+  <rect x="2" y="2" width="36" height="36" fill="#1a1a0a" stroke="#ffb000" stroke-width="2"/>
+  
+  <!-- Title Bar -->
+  <rect x="2" y="2" width="36" height="8" fill="#ffb000" opacity="0.3"/>
+  
+  <!-- Window Controls -->
+  <circle cx="6" cy="6" r="1" fill="#ffb000"/>
+  <circle cx="9" cy="6" r="1" fill="#ffc649"/>
+  <circle cx="12" cy="6" r="1" fill="#ff8c00"/>
+  
+  <!-- Terminal Content - HK -->
+  <text x="6" y="20" fill="#ffd700" font-size="8" font-family="monospace" font-weight="bold">HK</text>
+  
+  <!-- Terminal Prompt -->
+  <text x="6" y="28" fill="#ffb000" font-size="6" font-family="monospace">$&gt;</text>
+  
+  <!-- Cursor -->
+  <rect x="16" y="25" width="4" height="6" fill="#ffc649">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Scanlines Effect -->
+  <defs>
+    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="40" height="2">
+      <rect width="40" height="1" fill="transparent"/>
+      <rect y="1" width="40" height="1" fill="#ffb000" opacity="0.05"/>
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect x="2" y="10" width="36" height="28" fill="url(#scanlines)"/>
+  <rect x="2" y="2" width="36" height="36" fill="none" stroke="#ffb000" stroke-width="1" filter="url(#glow)" opacity="0.8"/>
+</svg>

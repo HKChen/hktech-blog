@@ -1,0 +1,35 @@
+{
+  "name": "HKTech - Terminal Blog",
+  "short_name": "HKTech",
+  "description": "Terminal 16bit 風格技術部落格",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ffb000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/favicon-16.svg",
+      "sizes": "16x16",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/img/favicon-32.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/img/logo.svg",
+      "sizes": "40x40",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/img/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["technology", "blog", "terminal"],
+  "lang": "zh-TW"
+}
